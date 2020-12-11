@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Bästkusten
 {
@@ -7,35 +8,51 @@ namespace Bästkusten
     {
        
         static void Main(string[] args)
-        {
-            string password;
-            
+        {       string password;
             Console.WriteLine("Hej och välkommen!");
-            Console.WriteLine("Vänligen ange lösenord.");
-            password = Console.ReadLine().ToLower();
-
-            if (password == "bästkusten")
+            do
             {
-                Console.WriteLine("Snyggt");
+               
+                
+                Console.WriteLine("Vänligen ange lösenord.");
+                password = Console.ReadLine().ToLower();
 
-                Student David = new Student("David", 32, 1.83, "Norrtälje", "Göteborg", "Gracie Jiu-Jitsu", "Tacos", "Blå", 1, "Problemlösning");
-                Student Johan = new Student("Johan", 34, 1.94, "Mariefred", "Mariefred", "Gaming", "Tacos", "Blå", 2, "Trygg framtid");
-                Student Oscar = new Student("Oscar", 26, 1.85, "Stockholm", "Stockholm", "Fotboll", "Lasagne", "Blå", 1, "Jobb");
-                Student Sanjin = new Student("Sanjin", 30, 1.79, "Norrköping", "Mostar", "Fotboll", "Pizza", "Blå", 2, "Jobb");
-                Student Jeremy = new Student("Jeremy", 19, 1.81, "Djurö", "Köln", "Gaming", "Älggryta", "Teal", 1, "Jobb");
-                Student Cecilia = new Student("Cecilia", 29, 1.63, "Norrköping", "Norrköping", "The Sims", "Risotto", "Gul", 1, "Kreativitet");
-                Student Elin = new Student("Elin", 31, 1.70, "Knivsta", "Karlskoga", "Hästar", "Sushi", "Röd", 2, "Personlig utveckling");
-                Student Ivo = new Student("Ivo", 42, 1.74, "Uppsala", "Split", "Fotografi", "Scampi", "Svart", 1, "Kreativitet");
-                Student Mostafa = new Student("Mostafa", 33, 1.74, "Stockholm", "Stockholm", "Träning""Oxfilé", "Svart", 4, "Tycker om att koda och lösa problem");
+                if (password == "bästkusten")
+                {
+                    List<Student> listOfStudents = new List<Student>();
                     
-            }
 
-            else
-            {
-                Console.WriteLine("Fel lösenord. Försök igen.");
-                return;
-            }
-                    
+                    Student David = new Student("David", 32, 1.83, "Norrtälje", "Göteborg", "Gracie Jiu-Jitsu", "Tacos", "Blå", 1, "Problemlösning");
+                    Student Johan = new Student("Johan", 34, 1.94, "Mariefred", "Mariefred", "Gaming", "Tacos", "Blå", 2, "Trygg framtid");
+                    Student Oscar = new Student("Oscar", 26, 1.85, "Stockholm", "Stockholm", "Fotboll", "Lasagne", "Blå", 1, "Jobb");
+                    Student Sanjin = new Student("Sanjin", 30, 1.79, "Norrköping", "Mostar", "Fotboll", "Pizza", "Blå", 2, "Jobb");
+                    Student Jeremy = new Student("Jeremy", 19, 1.81, "Djurö", "Köln", "Gaming", "Älggryta", "Teal", 1, "Jobb");
+                    Student Cecilia = new Student("Cecilia", 29, 1.63, "Norrköping", "Norrköping", "The Sims", "Risotto", "Gul", 1, "Kreativitet");
+                    Student Elin = new Student("Elin", 31, 1.70, "Knivsta", "Karlskoga", "Hästar", "Sushi", "Röd", 2, "Personlig utveckling");
+                    Student Ivo = new Student("Ivo", 42, 1.74, "Uppsala", "Split", "Fotografi", "Scampi", "Svart", 1, "Kreativitet");
+                    Student Mostafa = new Student("Mostafa", 33, 1.74, "Stockholm", "Stockholm", "Träning", "Oxfilé", "Svart", 4, "Tycker om att koda och lösa problem");
+
+                    listOfStudents.Add(David);
+                    listOfStudents.Add(Johan);
+                    listOfStudents.Add(Oscar);
+                    listOfStudents.Add(Sanjin);
+                    listOfStudents.Add(Jeremy);
+                    listOfStudents.Add(Cecilia);
+                    listOfStudents.Add(Elin);
+                    listOfStudents.Add(Ivo);
+                    listOfStudents.Add(Mostafa);
+
+
+
+                }
+
+                else
+                {
+                    Console.WriteLine("Fel lösenord. Försök igen.");
+                } 
+            } while (password!="bästkusten");
+
+            Console.Clear();         
             
         }
     }
