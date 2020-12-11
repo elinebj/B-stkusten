@@ -8,7 +8,10 @@ namespace Bästkusten
     {
        
         static void Main(string[] args)
-        {       string password;
+        {       
+            string password;
+            string choice = "";
+
             Console.WriteLine("Hej och välkommen!");
             do
             {
@@ -41,6 +44,48 @@ namespace Bästkusten
                     listOfStudents.Add(Elin);
                     listOfStudents.Add(Ivo);
                     listOfStudents.Add(Mostafa);
+
+                    while (choice != "4")
+                    {
+                        Console.WriteLine("Välkomment till Bästkusten! Vad vill du göra?");
+                        Console.WriteLine("1. Lista alla medlemmar i gruppen.");
+                        Console.WriteLine("2. Lära känna en medlem i gruppen.");
+                        Console.WriteLine("3. Ta bort en medlem i gruppen.");
+                        Console.WriteLine("4. Avsluta programmet");
+                        choice = Console.ReadLine();
+
+                        switch (choice)
+                        {
+                            case "1":
+
+                                foreach (var Student in listOfStudents)
+                                {
+                                    Console.WriteLine(Student.Name);
+                                }
+
+                                break;
+
+                            case "2":
+                                foreach (var Student in listOfStudents)
+                                {
+                                    Console.WriteLine("{0} är {1} år gammal och {2} meter lång. {0} bor i {3} och är född i {4}. {0}s hobby är {5} och favoritmaten är {6}." +
+                                        " {0}s favoritfärg är {6} och {0} har {7} syskon. {0}s motivering till programmering är {8}" ,Student.Name, Student.Age, Student.Height, Student.Hometown, Student.Birthtown, Student.Hobby, Student.FavFood, Student.FavColor, Student.NrOfSiblings, Student.Motivation);
+                                }
+                                break;
+                            case "3":
+                                Console.WriteLine("ta bort");
+                                break;
+                            default:
+                                Console.WriteLine("Ogiltigt val, försök igen");
+                                Console.WriteLine("");
+                                break;
+
+                                
+
+                        }
+
+                    }
+
 
 
 
