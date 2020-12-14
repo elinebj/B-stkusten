@@ -11,6 +11,7 @@ namespace Bästkusten
         {       
             string password;
             string choice = "";
+            int listNr = 1;
 
             Console.WriteLine("Hej och välkommen!");
             do
@@ -57,23 +58,47 @@ namespace Bästkusten
                         switch (choice)
                         {
                             case "1":
-
+                                listNr = 1;
                                 foreach (var Student in listOfStudents)
                                 {
-                                    Console.WriteLine(Student.Name);
+                                    Console.WriteLine(listNr + ". " + Student.Name);
+                                    listNr++;
                                 }
 
                                 break;
 
                             case "2":
+                                listNr = 1;
+                                Console.WriteLine("Skriv numret på den du önskar veta mer om.");
+                                Console.WriteLine("");
                                 foreach (var Student in listOfStudents)
                                 {
-                                    Console.WriteLine("{0} är {1} år gammal och {2} meter lång. {0} bor i {3} och är född i {4}. {0}s hobby är {5} och favoritmaten är {6}." +
-                                        " {0}s favoritfärg är {6} och {0} har {7} syskon. {0}s motivering till programmering är {8}" ,Student.Name, Student.Age, Student.Height, Student.Hometown, Student.Birthtown, Student.Hobby, Student.FavFood, Student.FavColor, Student.NrOfSiblings, Student.Motivation);
+                                    Console.WriteLine(listNr + ". " + Student.Name);
+                                    listNr++;
                                 }
+                                
+                                int i = Convert.ToInt32(Console.ReadLine());
+
+                                Student s = listOfStudents[i - 1];
+                                s.PrintStudent();
+                                
+                        
                                 break;
                             case "3":
-                                Console.WriteLine("ta bort");
+                                listNr = 1;
+                                Console.WriteLine("Skriv numret på den du önskar ta bort.");
+                                Console.WriteLine("");
+                                foreach (var Student in listOfStudents)
+                                {
+                                    Console.WriteLine(listNr + ". " + Student.Name);
+                                    listNr++;
+                                }
+
+                                i = Convert.ToInt32(Console.ReadLine());
+                                listOfStudents.RemoveAt(i-1);
+                                Console.WriteLine("Plats " + i + " är borttagen.");
+                                
+                                 
                                 break;
                             default:
                                 Console.WriteLine("Ogiltigt val, försök igen");
@@ -137,6 +162,16 @@ namespace Bästkusten
             this.motivation = motivation;
         }
 
+        public void PrintStudent()
+        {
+         
+                Console.WriteLine($"{name} är {age} år gammal och {height} m. lång, bor i {hometown} och är född i {birthtown}.");
+                Console.WriteLine($"{name}s hobby är {hobby} och {name} gillar även {favFood} och färgen {favColor}.");
+                Console.WriteLine($"{name} har {nrOfSiblings} syskon och {motivation} är hens främsta motivation till att lära sig programmering.");
+
+            
+        }
+
 
         public string Name
         {
@@ -177,7 +212,7 @@ namespace Bästkusten
         {
             get
             {
-                return Hometown;
+                return hometown;
             }
             set
             {
@@ -196,6 +231,8 @@ namespace Bästkusten
                 birthtown = value;
             }
 
+           
+
         }
 
         public string Hobby
@@ -213,7 +250,7 @@ namespace Bästkusten
         {
             get
             {
-                return FavFood;
+                return favFood;
             }
             set
             {
@@ -255,6 +292,8 @@ namespace Bästkusten
                 motivation = value;
             }
         }
+
+
 
     }
 }
