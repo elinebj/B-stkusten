@@ -72,9 +72,9 @@ namespace Bästkusten
                                 listNr = 1;
                                 foreach (var Student in listOfStudents)
                                 {
-                                    Console.WriteLine(listNr + ". " + Student.Name);
-                                    listNr++;
+                                    Console.Write($"{Student.Name}, ");
                                 }
+                                Console.WriteLine("");
                                 break;
 
                             case "2":
@@ -121,7 +121,6 @@ namespace Bästkusten
                     Console.WriteLine("Fel lösenord. Försök igen.");
                 }
             } while (password != "bästkusten");
-
             Console.Clear();
         }
 
